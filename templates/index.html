@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie-tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <header>
+        <svg width="34" height="34" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 13.5V13C4 8.02944 7.58172 4 12 4C16.4183 4 20 8.02944 20 13V13.5" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" />
+            <path
+                d="M2 17.4385V15.5616C2 14.6439 2.62459 13.8439 3.51493 13.6213L4 13.5L5.25448 13.1864C5.63317 13.0918 6 13.3782 6 13.7685V19.2316C6 19.6219 5.63317 19.9083 5.25448 19.8137L3.51493 19.3788C2.62459 19.1562 2 18.3562 2 17.4385Z"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+                d="M22 17.4385V15.5616C22 14.6439 21.3754 13.8439 20.4851 13.6213L20 13.5L18.7455 13.1864C18.3668 13.0918 18 13.3782 18 13.7685V19.2316C18 19.6219 18.3668 19.9083 18.7455 19.8137L20.4851 19.3788C21.3754 19.1562 22 18.3562 22 17.4385Z"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h1>Groupie tracker</h1>
+    </header>
+    <main>
+        <div class="box">
+            {{range .}}
+            <div class="item">
+                <div class="name">
+                    <h1>{{.Name}}</h1>
+                </div>
+                <div class="image">
+                    <img src="{{.Image}}">
+                </div>
+                <div class="firstalbum">
+                    <h3>First album:</h3>
+                    <p>{{.FirstAlbum}}</p>
+                </div>
+                <div class="since">
+                    <h3>Active since:</h3>
+                    <p>{{.CreationDate}}</p>
+                </div>
+                <div class="info">
+                    <details>
+                        <summary>Member(s)</summary>
+                        {{range .Members}}
+                        <p>{{.}}</p>
+                        {{end}}
+                    </details>
+                    <details>
+                        <summary>Concerts</summary>
+                        {{range $loc, $dates := .Locs}}
+                        <p>{{$loc}}</p>
+                        {{range $date := $dates}}
+                        <p>{{$date}}</p>
+                        {{end}}
+                        {{end}}
+                    </details>
+                </div>
+            </div>
+
+            {{end}}
+    </main>
+    <script src="../static/app.js"></script>
+</body>
+
+</html>

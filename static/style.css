@@ -1,0 +1,36 @@
+html {
+  font-family: 'M PLUS 1 Code', sans-serif;
+  min-width: 100%;
+  max-width: 100%;
+  font-size: large;
+  text-align: center;
+}
+
+body {
+  background-image: linear-gradient(rgba(219, 35, 185, 0.5), rgba(242, 240, 240, 0.5)),
+    url("https://media.istockphoto.com/photos/gray-abstract-minimal-motion-backgrounds-loopable-elements-4k-picture-id1174989482?b=1&k=20&m=1174989482&s=170667a&w=0&h=ld7ukW9KTzUlJLc6c37C2xs5ESYP2wLyjxsEVCumn2s=");
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-between;
+}
+
+.item {
+  border: 2px solid black;
+  margin-bottom: 1em;
+  padding: 1em;
+  width: 240px;
+  
+}
